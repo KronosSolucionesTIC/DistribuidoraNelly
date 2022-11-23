@@ -1,0 +1,25 @@
+body {
+    font-family: 'Roboto-Regular';
+    height: 100vh;
+    background-color: #0f3163;
+}
+.Naranja{
+    background-color: #FF6513;
+    color: white;
+    font-family: 'Roboto-Bold';
+}
+.Azul{
+    background-color: #0F3366;
+    color: white;  
+}
+.accordion-button:not(.collapsed) {
+    background-color: #FFFFFF !important;
+}
+@font-face {
+    src: url(Roboto-Regular.ttf);
+    font-family: 'Roboto-Regular';
+}
+@font-face {
+    src: url(Roboto-Bold.ttf);
+    font-family: 'Roboto-Bold';
+}
