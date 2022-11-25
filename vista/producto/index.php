@@ -1,11 +1,11 @@
 <?php
 include "../sesion.php";
 
-include '../../controlador/cliente_controller.php';
+include '../../controlador/producto_controller.php';
 include '../../controlador/login_controller.php';
 $loginController = new LoginController();
-$permisos     = $loginController->Permisos($idUsuario, 2);
-$clienteController = new ClienteController();
+$permisos     = $loginController->Permisos($idUsuario, 1);
+$productoController = new ProductoController();
 ?>
 <body>
   <div class="container-fluid">
@@ -14,7 +14,7 @@ $clienteController = new ClienteController();
         <?php include "../menu.php"; ?>
       </div>
       <div class="col-sm-9">
-        <?php include "con_cliente.php"; ?>
+        <?php include "con_producto.php"; ?>
       </div>
     </div>
   </div>

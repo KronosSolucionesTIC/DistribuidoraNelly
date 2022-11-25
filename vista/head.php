@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-            Ortopédicos W Y W - Software
+            Distribuidora Nelly
     </title>
     <!--    favicon-->
     <link href="../../imagenes/favicon.png" rel="shortcut icon" type="image/x-icon"/>

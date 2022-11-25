@@ -3,7 +3,7 @@
 <script type="text/javascript">
  	//Funcion para el Datatable
     $(document).ready(function () {
-        $('#tablaCliente').DataTable(
+        $('#tablaVenta').DataTable(
         	{
                 "pagingType": "full_numbers",
                 "lengthMenu": [[ 10, 25, 50, -1], [ 10, 25, 50, "Todos" ]],
@@ -33,49 +33,49 @@
         );
     });
 
-    //Funcion boton crear cliente
-	$("#btn_crear_cliente").click(function(){
-		$("#clienteModalLabel").text("Crear cliente");
-		$("#btn_guardar_cliente").attr("data-accion","crear");
-		$("#form_cliente")[0].reset();
+    //Funcion boton crear venta
+	$("#btn_crear_venta").click(function(){
+		$("#ventaModalLabel").text("Crear venta");
+		$("#btn_guardar_venta").attr("data-accion","crear");
+		$("#form_venta")[0].reset();
 		$("#btn_guardando").hide();
 		limpiar_campos();
 	});
 
-	//Funcion guardar cliente
-	$("#btn_guardar_cliente").click(function(){
-		resultado = campos_incompletos('form_cliente');
+	//Funcion guardar venta
+	$("#btn_guardar_venta").click(function(){
+		resultado = campos_incompletos('form_venta');
 		if(resultado == true){
 			accion = $(this).attr('data-accion');
 			if(accion == 'crear'){
-				crea_cliente();
+				crea_venta();
 			}
 			if(accion == 'editar'){
-				edita_cliente();
+				edita_venta();
 			}
 		}
 	});
 
 	//Funcion para editar
 	$("[name*='btn_editar']").click(function(){
-		id_cliente = $(this).attr('data-id-cliente');
-		$("#clienteModalLabel").text("Editar cliente");
-		carga_cliente(id_cliente);
-		$("#btn_guardar_cliente").attr("data-accion","editar");
+		id_venta = $(this).attr('data-id-venta');
+		$("#ventaModalLabel").text("Editar venta");
+		carga_venta(id_venta);
+		$("#btn_guardar_venta").attr("data-accion","editar");
 		$("#btn_guardando").hide();
 		limpiar_campos();
 	});
 
-	//Funcion eliminar cliente
+	//Funcion eliminar venta
 	$("[name*='btn_eliminar']").click(function(){
 		$("#btn_eliminando").hide();
-		id_cliente = $(this).attr('data-id-cliente');
-		$("#btn_eliminar_cliente").attr("data-id-cliente",id_cliente);
+		id_venta = $(this).attr('data-id-venta');
+		$("#btn_eliminar_venta").attr("data-id-venta",id_venta);
 	});
 
-	//Funcion eliminar cliente
-	$("[name*='btn_eliminar_cliente']").click(function(){
-		id_cliente = $(this).attr('data-id-cliente');
-		elimina_cliente(id_cliente);
+	//Funcion eliminar venta
+	$("[name*='btn_eliminar_venta']").click(function(){
+		id_venta = $(this).attr('data-id-venta');
+		elimina_venta(id_venta);
 	});
 </script>

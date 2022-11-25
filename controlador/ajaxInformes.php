@@ -4,8 +4,8 @@ include dirname(__file__, 2) . '/modelo/informes.php';
 $informes = new Informes();
 $tipo    = isset($_REQUEST['tipo']) ? $_REQUEST['tipo'] : "";
 
-if ($tipo == 'informe_equipo_cliente') {
-    $resultado = $informes->getInformeEquipoCliente($_REQUEST);
+if ($tipo == 'informe_ventas') {
+    $resultado = $informes->getInformeVentas($_REQUEST);
     if ($resultado) {
         echo json_encode($resultado); //imprime el json
     } else {

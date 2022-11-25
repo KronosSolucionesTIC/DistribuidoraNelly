@@ -11,25 +11,28 @@ error_reporting(E_ALL);
                 <?php 
                     if ($permisos[0]["ins_per"] == 1) {
                 ?>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#clienteModal"  id="btn_crear_cliente">
-                        Agregar cliente
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productoModal"  id="btn_crear_producto">
+                        Agregar producto
                     </button>
                 <?php }?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-hover table-condensed table-bordered display" id="tablaCliente" style="width:100%">
+                <table class="table table-hover table-condensed table-bordered display" id="tablaProducto" style="width:100%">
                     <thead class="bg-gradient-info">
                         <tr class="text-center">
                             <th>
-                                Nombres
+                                PLU
                             </th>
                             <th>
-                                Apellidos
+                                Descripción
                             </th>
                             <th>
-                                Celular
+                                Marca
+                            </th>
+                            <th>
+                                Precio
                             </th>
                             <?php if ($permisos[0]["edi_per"] == 1) { ?>
                             <th>
@@ -44,7 +47,7 @@ error_reporting(E_ALL);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $clienteController->getTablaCliente($permisos);?>
+                        <?php $productoController->getTablaProducto($permisos);?>
                     </tbody>
                 </table>
             </div>
@@ -52,5 +55,5 @@ error_reporting(E_ALL);
     </div>
 </div>
 <?php include "../copyright.php";?>
-<?php include "modal_cliente.php";?>
+<?php include "modal_producto.php";?>
 <?php include "scripts.php";?>

@@ -27,16 +27,9 @@ class Informes
     }
 
     //Informe equipo cliente
-    public function getInformeEquipoCliente($data)
+    public function getInformeVentas($data)
     {
-        $query  = "SELECT consecutivo, consecutivo_equipo, nom_clase, nom_equipo, desc_tipo_equipos, CONCAT(nom1_cli, ' ', nom2_cli, ' ',apel1_cli, ' ', apel2_cli) AS nombre_cliente, fecha_ini_contrato, fecha_fin_contrato FROM contrato_alquiler
-            INNER JOIN listado_equipos ON listado_equipos.cod_contrato = contrato_alquiler.cod_calc
-            INNER JOIN equipos ON equipos.cod_equipo = listado_equipos.cod_equipo
-            INNER JOIN cliente ON cliente.cod_cli = contrato_alquiler.cod_cliente
-            INNER JOIN clase_equipos ON clase_equipos.cod_clase = equipos.clase_equipo
-            INNER JOIN tipo_equipos ON tipo_equipos.cod_tipo_equipos = equipos.tipo_equipo
-            WHERE cod_cli = '".$data['cod_cliente']."'
-            ORDER BY `contrato_alquiler`.`fecha_ini_contrato` ASC";
+        $query  = "call Ventas_por_rango_de_fecha ('".$data['fecha']."');";
         $result = mysqli_query($this->link, $query);
         $data   = array();
         while ($data[] = mysqli_fetch_assoc($result));

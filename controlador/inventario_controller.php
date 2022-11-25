@@ -1,7 +1,7 @@
 <?php
-include dirname(__file__, 2) . '/modelo/cliente.php';
+include dirname(__file__, 2) . '/modelo/inventario.php';
 
-class clienteController extends cliente
+class inventarioController extends inventario
 {
     //Constructor
     public function __construct()
@@ -10,26 +10,25 @@ class clienteController extends cliente
     }
 
     //Funcion para traer tabla
-    public function getTablaCliente($permisos)
+    public function getTablaInventario($permisos)
     {
-        $cliente      = new Cliente();
-        $listaCliente = $cliente->getCliente();
+        $inventario      = new Inventario();
+        $listaInventario = $inventario->getInventario();
         if ($permisos[0]["con_per"] == 1) {
-            if (isset($listaCliente)) {
-                for ($i = 0; $i < sizeof($listaCliente); $i++) {
+            if (isset($listaInventario)) {
+                for ($i = 0; $i < sizeof($listaInventario); $i++) {
                     echo '<tr>';
-                    echo '<td>' . $listaCliente[$i]["nombres_cliente"] . '</td>';
-                    echo '<td>' . $listaCliente[$i]["apellidos_cliente"] . '</td>';
-                    echo '<td>' . $listaCliente[$i]["celular_cliente"] . '</td>';
-                    echo '<td>' . $listaCliente[$i]["correo_electronico_cliente"] . '</td>';
+                    echo '<td>' . $listaInventario[$i]["descripcion_producto"] . '</td>';
+                    echo '<td>' . $listaInventario[$i]["cantidad_inventario"] . '</td>';
+                    echo '<td>' . $listaInventario[$i]["fecha"] . '</td>';
                     if ($permisos[0]["edi_per"] == 1) {
-                        echo '<td class="text-center"><button type="button" class="btn btn-warning text-center" data-bs-target="#clienteModal" data-bs-toggle="modal" name="btn_editar" data-id-cliente="' . $listaCliente[$i]["codigo_cliente"] . '"><i class="fa-solid fa-pen-to-square"></i></button></td>';
+                        echo '<td class="text-center"><button type="button" class="btn btn-warning text-center" data-bs-target="#inventarioModal" data-bs-toggle="modal" name="btn_editar" data-id-inventario="' . $listaInventario[$i]["codigo_inventario"] . '"><i class="fa-solid fa-pen-to-square"></i></button></td>';
                     }
                     echo '</tr>';
                 }
             } else {
                 echo '<tr>';
-                echo '<td colspan="9">No existen clientes</td>';
+                echo '<td colspan="9">No existen inventarios</td>';
                 echo '</tr>';
             }
         } else {
@@ -42,10 +41,10 @@ class clienteController extends cliente
     //Select tipo persona
     public function getSelectTipoPersona()
     {
-        //Instancia de cliente
-        $cliente = new Cliente();
+        //Instancia de inventario
+        $inventario = new Inventario();
         //Lista del menu Nivel 1
-        $listaTipo = $cliente->getTipoPersona();
+        $listaTipo = $inventario->getTipoPersona();
         //Se recorre array de nivel 1
         if (isset($listaTipo)) {
             echo '<option selected value="0">Seleccione...</option>';
@@ -64,10 +63,10 @@ class clienteController extends cliente
     //Select tipo empleado
     public function getSelectTipoEmpleado()
     {
-        //Instancia de cliente
-        $cliente = new Cliente();
+        //Instancia de inventario
+        $inventario = new Inventario();
         //Lista del menu Nivel 1
-        $listaTipo = $cliente->getTipoEmpleado();
+        $listaTipo = $inventario->getTipoEmpleado();
         //Se recorre array de nivel 1
         if (isset($listaTipo)) {
             echo '<option selected value="0">Seleccione...</option>';
@@ -86,10 +85,10 @@ class clienteController extends cliente
     //Funcion para lista desplegable del si no
     public function getSelectSiNo()
     {
-        //Instancia del cliente
-        $cliente = new Cliente();
+        //Instancia del inventario
+        $inventario = new Inventario();
         //Lista del menu Nivel 1
-        $listaSiNo = $cliente->getSiNo();
+        $listaSiNo = $inventario->getSiNo();
         //Se recorre array de nivel 1
         if (isset($listaSiNo)) {
             echo '<option selected value="0">Seleccione...</option>';
@@ -108,10 +107,10 @@ class clienteController extends cliente
     //Select ciudad
     public function getSelectCiudad()
     {
-        //Instancia de cliente
-        $cliente = new Cliente();
+        //Instancia de inventario
+        $inventario = new Inventario();
         //Lista del menu Nivel 1
-        $listaTipo = $cliente->getCiudad();
+        $listaTipo = $inventario->getCiudad();
         //Se recorre array de nivel 1
         if (isset($listaTipo)) {
             echo '<option selected value="0">Seleccione...</option>';

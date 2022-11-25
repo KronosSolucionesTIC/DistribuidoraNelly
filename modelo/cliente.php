@@ -17,9 +17,7 @@ class Cliente
     //Trae los clientees
     public function getCliente()
     {
-        $query  = "SELECT cod_cli, nom1_cli, CONCAT(nom1_cli,' ',nom2_cli,' ',apel1_cli,' ',apel2_cli) AS nombre, cedula_cli, direccion_cli, telefono_cli, celular_cli, desc_tipo_persona,tipo_persona  FROM cliente 
-                INNER JOIN tipo_persona ON tipo_persona.cod_tipo_persona = cliente.tipo_persona
-                ORDER BY cod_cli DESC";
+        $query  = "call consultar_clientes()";
         $result = mysqli_query($this->link, $query);
         $data   = array();
         while ($data[] = mysqli_fetch_assoc($result));

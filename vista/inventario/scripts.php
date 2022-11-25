@@ -3,7 +3,7 @@
 <script type="text/javascript">
  	//Funcion para el Datatable
     $(document).ready(function () {
-        $('#tablaCliente').DataTable(
+        $('#tablaInventario').DataTable(
         	{
                 "pagingType": "full_numbers",
                 "lengthMenu": [[ 10, 25, 50, -1], [ 10, 25, 50, "Todos" ]],
@@ -33,49 +33,49 @@
         );
     });
 
-    //Funcion boton crear cliente
-	$("#btn_crear_cliente").click(function(){
-		$("#clienteModalLabel").text("Crear cliente");
-		$("#btn_guardar_cliente").attr("data-accion","crear");
-		$("#form_cliente")[0].reset();
+    //Funcion boton crear inventario
+	$("#btn_crear_inventario").click(function(){
+		$("#inventarioModalLabel").text("Crear inventario");
+		$("#btn_guardar_inventario").attr("data-accion","crear");
+		$("#form_inventario")[0].reset();
 		$("#btn_guardando").hide();
 		limpiar_campos();
 	});
 
-	//Funcion guardar cliente
-	$("#btn_guardar_cliente").click(function(){
-		resultado = campos_incompletos('form_cliente');
+	//Funcion guardar inventario
+	$("#btn_guardar_inventario").click(function(){
+		resultado = campos_incompletos('form_inventario');
 		if(resultado == true){
 			accion = $(this).attr('data-accion');
 			if(accion == 'crear'){
-				crea_cliente();
+				crea_inventario();
 			}
 			if(accion == 'editar'){
-				edita_cliente();
+				edita_inventario();
 			}
 		}
 	});
 
 	//Funcion para editar
 	$("[name*='btn_editar']").click(function(){
-		id_cliente = $(this).attr('data-id-cliente');
-		$("#clienteModalLabel").text("Editar cliente");
-		carga_cliente(id_cliente);
-		$("#btn_guardar_cliente").attr("data-accion","editar");
+		id_inventario = $(this).attr('data-id-inventario');
+		$("#inventarioModalLabel").text("Editar inventario");
+		carga_inventario(id_inventario);
+		$("#btn_guardar_inventario").attr("data-accion","editar");
 		$("#btn_guardando").hide();
 		limpiar_campos();
 	});
 
-	//Funcion eliminar cliente
+	//Funcion eliminar inventario
 	$("[name*='btn_eliminar']").click(function(){
 		$("#btn_eliminando").hide();
-		id_cliente = $(this).attr('data-id-cliente');
-		$("#btn_eliminar_cliente").attr("data-id-cliente",id_cliente);
+		id_inventario = $(this).attr('data-id-inventario');
+		$("#btn_eliminar_inventario").attr("data-id-inventario",id_inventario);
 	});
 
-	//Funcion eliminar cliente
-	$("[name*='btn_eliminar_cliente']").click(function(){
-		id_cliente = $(this).attr('data-id-cliente');
-		elimina_cliente(id_cliente);
+	//Funcion eliminar inventario
+	$("[name*='btn_eliminar_inventario']").click(function(){
+		id_inventario = $(this).attr('data-id-inventario');
+		elimina_inventario(id_inventario);
 	});
 </script>

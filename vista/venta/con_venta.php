@@ -11,25 +11,34 @@ error_reporting(E_ALL);
                 <?php 
                     if ($permisos[0]["ins_per"] == 1) {
                 ?>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#clienteModal"  id="btn_crear_cliente">
-                        Agregar cliente
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ventaModal"  id="btn_crear_venta">
+                        Agregar venta
                     </button>
                 <?php }?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-hover table-condensed table-bordered display" id="tablaCliente" style="width:100%">
+                <table class="table table-hover table-condensed table-bordered display" id="tablaVenta" style="width:100%">
                     <thead class="bg-gradient-info">
                         <tr class="text-center">
                             <th>
-                                Nombres
+                                Cliente
                             </th>
                             <th>
-                                Apellidos
+                                Producto
                             </th>
                             <th>
-                                Celular
+                                Fecha
+                            </th>
+                            <th>
+                                Valor unitario
+                            </th>
+                            <th>
+                                Cantidad
+                            </th>
+                            <th>
+                                Valor total
                             </th>
                             <?php if ($permisos[0]["edi_per"] == 1) { ?>
                             <th>
@@ -44,7 +53,7 @@ error_reporting(E_ALL);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $clienteController->getTablaCliente($permisos);?>
+                        <?php $ventaController->getTablaVenta($permisos);?>
                     </tbody>
                 </table>
             </div>
@@ -52,5 +61,5 @@ error_reporting(E_ALL);
     </div>
 </div>
 <?php include "../copyright.php";?>
-<?php include "modal_cliente.php";?>
+<?php include "modal_venta.php";?>
 <?php include "scripts.php";?>
